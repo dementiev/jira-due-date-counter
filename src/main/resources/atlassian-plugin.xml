@@ -1,0 +1,25 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.artifactId}">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    </plugin-info>
+
+    <webwork1 key="DementievDuedateCounterPluginActions" name="Dementiev duedate counter Plugin Actions"
+              class="java.lang.Object">
+        <actions>
+            <action name="dementiev.jira.plugin.action.MyEditIssue" alias="EditIssue">
+                <view name="error">/secure/views/issue/editissue.jsp</view>
+                <view name="input">/secure/views/issue/editissue.jsp</view>
+            </action>
+        </actions>
+    </webwork1>
+
+    <customfield-type key="position" name="The number of carries 'due date'"
+                      class="dementiev.jira.plugin.customfield.DuedateUpdatingCounterCF">
+        <description>Вычисляемое поле.</description>
+        <resource type="velocity" name="view" location="templates/fields/view/view-counter.vm"/>
+        <!--<resource type="velocity" name="edit" location="templates/fields/view/view-serialnum.vm"/>-->
+        <resource type="velocity" name="column-view" location="templates/fields/view/view-counter.vm"/>
+    </customfield-type>
+</atlassian-plugin>
